@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Colleges — CollegeTracker</title>
+  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/pages/colleges.css">
+</head>
+<body>
+  <nav id="navbar"></nav>
+  <div id="readonly-banner"></div>
+  <main class="container">
+    <div class="page-header animate-in" data-delay="1">
+      <h1 class="page-title">My Colleges</h1>
+      <button class="btn btn--primary btn--add" data-action="add-school">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Add College
+      </button>
+    </div>
+
+    <div class="filter-bar animate-in" data-delay="2">
+      <div class="filter-bar__group">
+        <label class="input-label input-label--inline" for="filter-status">Status:</label>
+        <select class="select select--sm" id="filter-status">
+          <option value="all">All</option>
+          <option value="not_started">Not Started</option>
+          <option value="in_progress">In Progress</option>
+          <option value="submitted">Submitted</option>
+        </select>
+      </div>
+      <div class="filter-bar__group">
+        <label class="input-label input-label--inline" for="filter-category">Category:</label>
+        <select class="select select--sm" id="filter-category">
+          <option value="all">All</option>
+          <option value="reach">Reach</option>
+          <option value="target">Target</option>
+          <option value="safety">Safety</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="animate-in" data-delay="3">
+      <div class="table-wrapper" id="colleges-table-wrapper">
+        <table class="table" id="colleges-table">
+          <thead>
+            <tr>
+              <th><span class="table__sortable" data-sort="name">School <svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2v8M3 5l3-3 3 3"/></svg></span></th>
+              <th><span class="table__sortable" data-sort="deadline">Deadline <svg viewBox="0 0 12 12" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2v8M3 5l3-3 3 3"/></svg></span></th>
+              <th>App Type</th>
+              <th>Status</th>
+              <th>Done</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="colleges-tbody">
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card-list" id="colleges-card-list">
+      </div>
+
+      <div class="empty-state" id="colleges-empty" style="display:none;">
+        <svg class="empty-state__icon" viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M52 58H12a4 4 0 0 1-4-4V28l24-20 24 20v26a4 4 0 0 1-4 4z"/><path d="M24 58V38h16v20"/><path d="M32 8v0"/><circle cx="32" cy="12" r="3"/></svg>
+        <h3 class="empty-state__title">No colleges yet</h3>
+        <p class="empty-state__subtitle">Add your first college to start tracking your applications.</p>
+        <button class="btn btn--primary btn--add" data-action="add-school">+ Add College</button>
+      </div>
+    </div>
+  </main>
+
+  <div id="modal-root"></div>
+  <div id="toast-root"></div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/colleges.js"></script>
+</body>
+</html>
