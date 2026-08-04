@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In — CollegeTracker</title>
+  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/pages/auth.css">
+</head>
+<body class="auth-body">
+  <main class="auth-main">
+    <div class="auth-card">
+      <div class="auth-card__accent"></div>
+      <div class="auth-card__content">
+        <div class="auth-brand">
+          <span class="auth-brand__logo">CollegeTracker</span>
+          <p class="auth-brand__tagline">Your college applications, organized and on track.</p>
+        </div>
+
+        <div class="auth-tabs">
+          <button class="auth-tab auth-tab--active" data-tab="signin">Sign In</button>
+          <button class="auth-tab" data-tab="signup">Sign Up</button>
+        </div>
+
+        <form class="auth-form" id="signin-form" data-form="signin">
+          <div class="form-group">
+            <label class="input-label" for="signin-email">Email</label>
+            <input class="input" type="email" id="signin-email" name="email" placeholder="you@example.com" required autocomplete="email">
+            <span class="input-error" id="signin-email-error"></span>
+          </div>
+          <div class="form-group">
+            <label class="input-label" for="signin-password">Password</label>
+            <input class="input" type="password" id="signin-password" name="password" placeholder="Enter your password" required autocomplete="current-password">
+            <span class="input-error" id="signin-password-error"></span>
+          </div>
+          <button class="btn btn--primary auth-submit" type="submit">Sign In</button>
+          <span class="input-error auth-form-error" id="signin-form-error"></span>
+        </form>
+
+        <form class="auth-form auth-form--hidden" id="signup-form" data-form="signup">
+          <div class="form-group">
+            <label class="input-label" for="signup-name">Full Name</label>
+            <input class="input" type="text" id="signup-name" name="name" placeholder="Jane Doe" required autocomplete="name">
+            <span class="input-error" id="signup-name-error"></span>
+          </div>
+          <div class="form-group">
+            <label class="input-label" for="signup-email">Email</label>
+            <input class="input" type="email" id="signup-email" name="email" placeholder="you@example.com" required autocomplete="email">
+            <span class="input-error" id="signup-email-error"></span>
+          </div>
+          <div class="form-group">
+            <label class="input-label" for="signup-password">Password</label>
+            <input class="input" type="password" id="signup-password" name="password" placeholder="At least 6 characters" required minlength="6" autocomplete="new-password">
+            <span class="input-error" id="signup-password-error"></span>
+          </div>
+          <div class="form-group">
+            <label class="input-label">I am a&hellip;</label>
+            <div class="role-picker">
+              <label class="role-option">
+                <input type="radio" name="role" value="student" checked class="role-option__input">
+                <span class="role-option__card">
+                  <span class="role-option__icon">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 3 3 6 3s6-1 6-3v-5"/></svg>
+                  </span>
+                  <span class="role-option__label">Student</span>
+                  <span class="role-option__desc">Track your own applications</span>
+                </span>
+              </label>
+              <label class="role-option">
+                <input type="radio" name="role" value="parent" class="role-option__input">
+                <span class="role-option__card">
+                  <span class="role-option__icon">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  </span>
+                  <span class="role-option__label">Parent</span>
+                  <span class="role-option__desc">View your child&rsquo;s progress</span>
+                </span>
+              </label>
+              <label class="role-option">
+                <input type="radio" name="role" value="counselor" class="role-option__input">
+                <span class="role-option__card">
+                  <span class="role-option__icon">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                  </span>
+                  <span class="role-option__label">Counselor</span>
+                  <span class="role-option__desc">Monitor multiple students</span>
+                </span>
+              </label>
+            </div>
+          </div>
+          <div class="form-group form-group--invite" id="invite-code-group" style="display:none;">
+            <label class="input-label" for="signup-invite">Student Invite Code</label>
+            <input class="input" type="text" id="signup-invite" name="inviteCode" placeholder="e.g. ABC123" maxlength="6" autocomplete="off">
+            <span class="input-helper">Enter the code shared by a student to link accounts.</span>
+            <span class="input-error" id="signup-invite-error"></span>
+          </div>
+          <button class="btn btn--primary auth-submit" type="submit">Create Account</button>
+          <span class="input-error auth-form-error" id="signup-form-error"></span>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <div id="toast-root"></div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/components.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // If already signed in, redirect
+      const session = Auth.getCurrentSession();
+      if (session) {
+        window.location.href = 'dashboard.html';
+        return;
+      }
+
+      // Tab switching
+      const tabs = document.querySelectorAll('.auth-tab');
+      const signinForm = document.getElementById('signin-form');
+      const signupForm = document.getElementById('signup-form');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('auth-tab--active'));
+          tab.classList.add('auth-tab--active');
+          const target = tab.getAttribute('data-tab');
+          if (target === 'signin') {
+            signinForm.classList.remove('auth-form--hidden');
+            signupForm.classList.add('auth-form--hidden');
+          } else {
+            signupForm.classList.remove('auth-form--hidden');
+            signinForm.classList.add('auth-form--hidden');
+          }
+        });
+      });
+
+      // Role picker: show invite code for parent/counselor
+      const roleInputs = document.querySelectorAll('input[name="role"]');
+      const inviteGroup = document.getElementById('invite-code-group');
+      roleInputs.forEach(input => {
+        input.addEventListener('change', () => {
+          if (input.value === 'parent' || input.value === 'counselor') {
+            inviteGroup.style.display = '';
+          } else {
+            inviteGroup.style.display = 'none';
+          }
+        });
+      });
+
+      // Sign In
+      signinForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        clearErrors('signin');
+        const email = document.getElementById('signin-email').value.trim();
+        const password = document.getElementById('signin-password').value;
+
+        if (!email) {
+          showError('signin-email-error', 'Email is required');
+          return;
+        }
+        if (!password) {
+          showError('signin-password-error', 'Password is required');
+          return;
+        }
+
+        try {
+          const result = await Auth.signIn(email, password);
+          if (result.error) {
+            showError('signin-form-error', result.error);
+          } else {
+            window.location.href = 'dashboard.html';
+          }
+        } catch (err) {
+          showError('signin-form-error', 'Something went wrong. Please try again.');
+        }
+      });
+
+      // Sign Up
+      signupForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        clearErrors('signup');
+        const name = document.getElementById('signup-name').value.trim();
+        const email = document.getElementById('signup-email').value.trim();
+        const password = document.getElementById('signup-password').value;
+        const role = document.querySelector('input[name="role"]:checked').value;
+        const inviteCode = document.getElementById('signup-invite').value.trim();
+
+        let valid = true;
+        if (!name) { showError('signup-name-error', 'Name is required'); valid = false; }
+        if (!email) { showError('signup-email-error', 'Email is required'); valid = false; }
+        if (!password || password.length < 6) { showError('signup-password-error', 'Password must be at least 6 characters'); valid = false; }
+        if ((role === 'parent' || role === 'counselor') && !inviteCode) {
+          showError('signup-invite-error', 'Invite code is required to link to a student');
+          valid = false;
+        }
+        if (!valid) return;
+
+        try {
+          const result = await Auth.signUp(email, password, role, name, inviteCode);
+          if (result.error) {
+            showError('signup-form-error', result.error);
+          } else {
+            window.location.href = 'dashboard.html';
+          }
+        } catch (err) {
+          showError('signup-form-error', 'Something went wrong. Please try again.');
+        }
+      });
+
+      function showError(id, msg) {
+        const el = document.getElementById(id);
+        if (el) {
+          el.textContent = msg;
+          el.style.display = 'flex';
+        }
+      }
+
+      function clearErrors(prefix) {
+        document.querySelectorAll('[id^="' + prefix + '"][id$="-error"]').forEach(el => {
+          el.textContent = '';
+          el.style.display = 'none';
+        });
+      }
+    });
+  </script>
+</body>
+</html>
