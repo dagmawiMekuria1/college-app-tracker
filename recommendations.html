@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recommendations — CollegeTracker</title>
+  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/pages/recommendations.css">
+</head>
+<body>
+  <nav id="navbar"></nav>
+  <div id="readonly-banner"></div>
+  <main class="container">
+    <div class="page-header animate-in" data-delay="1">
+      <h1 class="page-title">Recommendations</h1>
+      <button class="btn btn--primary btn--add" data-action="add-rec">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        Add Recommendation
+      </button>
+    </div>
+
+    <div class="animate-in" data-delay="2">
+      <div class="table-wrapper" id="recs-table-wrapper">
+        <table class="table" id="recs-table">
+          <thead>
+            <tr>
+              <th>Teacher</th>
+              <th>Subject</th>
+              <th>Date Asked</th>
+              <th>Schools</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="recs-tbody">
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card-list" id="recs-card-list">
+      </div>
+
+      <div class="empty-state" id="recs-empty" style="display:none;">
+        <svg class="empty-state__icon" viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="12" width="48" height="36" rx="3"/><polyline points="8 18 32 34 56 18"/></svg>
+        <h3 class="empty-state__title">No recommendations yet</h3>
+        <p class="empty-state__subtitle">Start tracking your recommendation letters.</p>
+        <button class="btn btn--primary btn--add" data-action="add-rec">+ Add Recommendation</button>
+      </div>
+    </div>
+  </main>
+
+  <div id="modal-root"></div>
+  <div id="toast-root"></div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/recommendations.js"></script>
+</body>
+</html>
