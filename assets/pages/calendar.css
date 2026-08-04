@@ -1,0 +1,152 @@
+/* ── Calendar Page ── */
+.calendar-card {
+  padding: var(--space-6);
+}
+
+.calendar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.calendar-month {
+  font-size: var(--font-size-subheading);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  min-width: 200px;
+  text-align: center;
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: var(--font-size-overline);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-widest);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-1);
+  padding: var(--space-2) 0;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  background: var(--color-border);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.calendar-day {
+  background: var(--color-surface);
+  min-height: 80px;
+  padding: var(--space-1) var(--space-2);
+  cursor: pointer;
+  transition: background-color var(--duration-fast) var(--ease-default);
+  position: relative;
+}
+
+.calendar-day:hover {
+  background: var(--color-neutral-50);
+}
+
+.calendar-day--other-month {
+  background: var(--color-neutral-25);
+}
+.calendar-day--other-month .calendar-day__number {
+  color: var(--color-text-muted);
+}
+
+.calendar-day--today .calendar-day__number {
+  color: var(--color-primary-500);
+  background: var(--color-primary-50);
+  border-radius: var(--radius-full);
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-day--selected {
+  background: var(--color-primary-50);
+}
+
+.calendar-day__number {
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  display: block;
+  margin-bottom: var(--space-1);
+}
+
+.calendar-day__events {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.calendar-event-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+.calendar-event-dot--school {
+  background: var(--color-primary-500);
+}
+.calendar-event-dot--checklist {
+  background: var(--color-warning-500);
+}
+.calendar-event-dot--overdue {
+  background: var(--color-danger-500);
+}
+
+.calendar-day__more {
+  font-size: 10px;
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+.calendar-day--has-overdue {
+  /* subtle indicator */
+}
+.calendar-day--has-overdue .calendar-day__number {
+  color: var(--color-danger-600);
+}
+
+/* Calendar Detail Panel */
+.calendar-detail-card {
+  margin-top: var(--space-6);
+}
+
+.calendar-detail-item {
+  display: flex;
+  align-items: center;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+  gap: var(--space-3);
+  font-size: var(--font-size-body-sm);
+}
+.calendar-detail-item:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 639px) {
+  .calendar-day {
+    min-height: 48px;
+    padding: 2px 4px;
+  }
+  .calendar-day__number {
+    font-size: 11px;
+  }
+  .calendar-month {
+    font-size: var(--font-size-body);
+    min-width: auto;
+  }
+}
