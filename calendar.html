@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendar — CollegeTracker</title>
+  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/pages/calendar.css">
+</head>
+<body>
+  <nav id="navbar"></nav>
+  <div id="readonly-banner"></div>
+  <main class="container">
+    <div class="page-header animate-in" data-delay="1">
+      <h1 class="page-title">Deadlines Calendar</h1>
+    </div>
+
+    <div class="card calendar-card animate-in" data-delay="2">
+      <div class="calendar-nav">
+        <button class="btn btn--icon" id="cal-prev" aria-label="Previous month">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <h2 class="calendar-month" id="cal-month-label">January 2026</h2>
+        <button class="btn btn--icon" id="cal-next" aria-label="Next month">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+
+      <div class="calendar-weekdays">
+        <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+      </div>
+
+      <div class="calendar-grid" id="calendar-grid">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+
+    <div class="card calendar-detail-card animate-in" data-delay="3" id="calendar-detail" style="display:none;">
+      <div class="card__header">
+        <h3 class="card__title" id="calendar-detail-title">Events</h3>
+      </div>
+      <ul class="deadline-list" id="calendar-detail-list">
+      </ul>
+    </div>
+  </main>
+
+  <div id="modal-root"></div>
+  <div id="toast-root"></div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/calendar.js"></script>
+</body>
+</html>
