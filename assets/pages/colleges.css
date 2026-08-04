@@ -1,0 +1,80 @@
+/* ── Colleges Page ── */
+
+/* Mobile card view */
+.card--school {
+  padding: var(--space-5);
+}
+
+.card--school__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.card--school__name {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+}
+
+.card--school__type {
+  font-size: var(--font-size-caption);
+  color: var(--color-text-secondary);
+  margin-top: 2px;
+}
+
+.card--school__detail {
+  margin-top: var(--space-3);
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-secondary);
+}
+
+.card--school__progress {
+  margin-top: var(--space-3);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.card--school__progress-label {
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary-500);
+  white-space: nowrap;
+  min-width: 32px;
+  text-align: right;
+}
+
+.card--school__status {
+  margin-top: var(--space-3);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.card--school--overdue {
+  border-left: 3px solid var(--color-danger-500);
+}
+
+/* Table progress cell */
+.table__progress {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 120px;
+}
+.table__progress .progress {
+  flex: 1;
+}
+.table__progress-label {
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary-500);
+  min-width: 32px;
+  text-align: right;
+}
+
+/* Actions cell */
+.table__actions {
+  white-space: nowrap;
+}
