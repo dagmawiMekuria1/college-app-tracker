@@ -1,0 +1,205 @@
+/* ── Auth Page ── */
+.auth-body {
+  background: var(--color-bg);
+  background-image: var(--gradient-hero);
+  min-height: 100vh;
+}
+
+.auth-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--space-4);
+}
+
+.auth-card {
+  max-width: 420px;
+  width: 100%;
+  background: var(--color-surface);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  animation: authEntry 400ms var(--ease-out) forwards;
+}
+
+@keyframes authEntry {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.auth-card__accent {
+  height: 4px;
+  background: var(--gradient-accent-line);
+  background-size: 200% 100%;
+  animation: accentShimmer 1.5s var(--ease-default) 0.3s 1;
+}
+
+@keyframes accentShimmer {
+  0%   { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
+
+.auth-card__content {
+  padding: var(--space-8);
+}
+
+@media (max-width: 480px) {
+  .auth-card__content {
+    padding: var(--space-6);
+  }
+}
+
+.auth-brand {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.auth-brand__logo {
+  font-size: var(--font-size-heading);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-500);
+  letter-spacing: var(--letter-spacing-tight);
+  display: block;
+}
+
+.auth-brand__tagline {
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-2);
+  line-height: var(--line-height-body);
+}
+
+/* Tabs */
+.auth-tabs {
+  display: flex;
+  gap: var(--space-1);
+  margin-bottom: var(--space-6);
+  background: var(--color-neutral-100);
+  border-radius: var(--radius-md);
+  padding: 3px;
+}
+
+.auth-tab {
+  flex: 1;
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-default);
+}
+
+.auth-tab:hover {
+  color: var(--color-text);
+}
+
+.auth-tab--active {
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Forms */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form--hidden {
+  display: none;
+}
+
+.auth-submit {
+  width: 100%;
+  margin-top: var(--space-6);
+}
+
+.auth-form-error {
+  text-align: center;
+  margin-top: var(--space-3);
+  justify-content: center;
+}
+
+/* Role Picker */
+.role-picker {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+}
+
+@media (max-width: 380px) {
+  .role-picker {
+    grid-template-columns: 1fr;
+  }
+}
+
+.role-option {
+  cursor: pointer;
+}
+
+.role-option__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.role-option__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-3);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: all var(--duration-fast) var(--ease-default);
+  gap: var(--space-1);
+}
+
+.role-option__card:hover {
+  border-color: var(--color-border-strong);
+}
+
+.role-option__input:checked + .role-option__card {
+  border-color: var(--color-primary-500);
+  background: var(--color-primary-50);
+}
+
+.role-option__input:focus-visible + .role-option__card {
+  box-shadow: var(--shadow-focus);
+}
+
+.role-option__icon {
+  color: var(--color-text-secondary);
+  display: flex;
+}
+.role-option__input:checked + .role-option__card .role-option__icon {
+  color: var(--color-primary-500);
+}
+
+.role-option__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.role-option__label {
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+}
+
+.role-option__desc {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  line-height: 1.3;
+}
