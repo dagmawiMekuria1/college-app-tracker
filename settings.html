@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings — CollegeTracker</title>
+  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/pages/settings.css">
+</head>
+<body>
+  <nav id="navbar"></nav>
+  <div id="readonly-banner"></div>
+  <main class="container">
+    <div class="page-header animate-in" data-delay="1">
+      <h1 class="page-title">Settings</h1>
+    </div>
+
+    <div class="settings-grid">
+      <section class="card animate-in" data-delay="2">
+        <div class="card__header">
+          <h2 class="card__title">Profile</h2>
+        </div>
+        <form id="profile-form">
+          <div class="form-group">
+            <label class="input-label" for="settings-name">Full Name</label>
+            <input class="input" type="text" id="settings-name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label class="input-label" for="settings-email">Email</label>
+            <input class="input" type="email" id="settings-email" name="email" disabled>
+            <span class="input-helper">Email cannot be changed.</span>
+          </div>
+          <div class="form-group">
+            <label class="input-label">Role</label>
+            <input class="input" type="text" id="settings-role" disabled>
+          </div>
+          <button class="btn btn--primary" type="submit">Save Changes</button>
+        </form>
+      </section>
+
+      <section class="card animate-in" data-delay="3">
+        <div class="card__header">
+          <h2 class="card__title">Change Password</h2>
+        </div>
+        <form id="password-form">
+          <div class="form-group">
+            <label class="input-label" for="current-password">Current Password</label>
+            <input class="input" type="password" id="current-password" name="currentPassword" required autocomplete="current-password">
+          </div>
+          <div class="form-group">
+            <label class="input-label" for="new-password">New Password</label>
+            <input class="input" type="password" id="new-password" name="newPassword" required minlength="6" autocomplete="new-password">
+            <span class="input-helper">At least 6 characters.</span>
+          </div>
+          <button class="btn btn--primary" type="submit">Update Password</button>
+          <span class="input-error" id="password-error" style="display:none;"></span>
+        </form>
+      </section>
+
+      <section class="card animate-in" data-delay="4" id="invite-section">
+        <div class="card__header">
+          <h2 class="card__title">Invite Viewer</h2>
+        </div>
+        <p class="settings-description">Share this code with a parent or counselor so they can view your tracker.</p>
+        <div class="invite-code-display" id="invite-code-display">
+          <span class="invite-code" id="invite-code">------</span>
+          <button class="btn btn--secondary btn--sm" id="generate-invite" data-action="generate-invite">Generate Code</button>
+        </div>
+      </section>
+
+      <section class="card animate-in" data-delay="4" id="linked-students-section" style="display:none;">
+        <div class="card__header">
+          <h2 class="card__title">Linked Students</h2>
+        </div>
+        <div id="linked-students-list">
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="modal-root"></div>
+  <div id="toast-root"></div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/settings.js"></script>
+</body>
+</html>
