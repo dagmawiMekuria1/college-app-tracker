@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — CollegeTracker</title>
+  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/pages/dashboard.css">
+</head>
+<body>
+  <nav id="navbar"></nav>
+  <div id="readonly-banner"></div>
+  <main class="container">
+    <div class="page-header animate-in" data-delay="1">
+      <h1 class="page-title">Dashboard</h1>
+    </div>
+
+    <div class="summary-grid animate-in" data-delay="2" id="summary-cards">
+      <div class="card card--summary card--summary-total">
+        <span class="card__label">Total Schools</span>
+        <span class="card__value" id="stat-total">0</span>
+      </div>
+      <div class="card card--summary card--summary-submitted">
+        <span class="card__label">Submitted</span>
+        <span class="card__value" id="stat-submitted">0</span>
+      </div>
+      <div class="card card--summary card--summary-open">
+        <span class="card__label">Open</span>
+        <span class="card__value" id="stat-open">0</span>
+      </div>
+      <div class="card card--summary card--summary-next">
+        <span class="card__label">Next Deadline</span>
+        <span class="card__value card__value--sm" id="stat-next">—</span>
+      </div>
+    </div>
+
+    <div class="card progress-card animate-in" data-delay="3">
+      <div class="card__header">
+        <h2 class="card__title">Overall Progress</h2>
+        <span class="progress-label" id="progress-pct">0%</span>
+      </div>
+      <div class="progress progress--lg">
+        <div class="progress__fill" id="progress-fill" style="width:0%"></div>
+      </div>
+    </div>
+
+    <div class="card deadlines-card animate-in" data-delay="4">
+      <div class="card__header">
+        <h2 class="card__title">Next 7 Days</h2>
+      </div>
+      <div id="deadline-list" class="deadline-list">
+        <div class="empty-state empty-state--compact">
+          <p class="empty-state__title">No upcoming deadlines</p>
+          <p class="empty-state__subtitle">Deadlines within the next 7 days will appear here.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="modal-root"></div>
+  <div id="toast-root"></div>
+
+  <script src="js/utils.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/router.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
